@@ -16,6 +16,12 @@ main = () => {
     tsizey = 30
     xshuz = 2
     xshuy = 2
+    alert("公告",`欢迎进群交流探讨
+官方群:1038174927
+b站UID一:335069986(十里序ovo)
+b站UID二:34334588(一颗红心永向党zre)
+创作者名单:十里序 雨人 爱生活`)
+    log("此版本完全免费，谨防倒卖，官方群号:1038174927")
     window = {}
     window.hintText = "替身\n已经\n好了"
     function 初始化(h) {
@@ -24,7 +30,11 @@ main = () => {
             n = data.getWidth() < data.getHeight()
             if (n) {
                 初始化(!h)
-            }
+            }//源码水印(欢迎进群交流探讨)
+//官方群:1038174927
+//官方tg:https://t.me/YJBR982
+//b站UID一:335069986(十里序ovo)
+//b站UID二:34334588(一颗红心永向党zre)
         } catch (e) {
             if (!requestScreenCapture(h)) {
                 toast("请求截图失败");
@@ -50,11 +60,6 @@ main = () => {
             return window.hintText
         }
     }
-//源码水印(欢迎进群交流探讨)
-//官方群:1038174927
-//官方tg:https://t.me/YJBR982
-//b站UID一:335069986(十里序ovo)
-//b站UID二:34334588(一颗红心永向党zre)
     window.fc = function () {
         raw = "window"
         zuo = floaty[raw](
@@ -79,23 +84,14 @@ main = () => {
             you.text.setTextColor(ylty1)
             you.text.setBackgroundColor(ylby1)
         });
-//源码水印(欢迎进群交流探讨)
-//官方群:1038174927
-//官方tg:https://t.me/YJBR982
-//b站UID一:335069986(十里序ovo)
-//b站UID二:34334588(一颗红心永向党zre)
        
             zuo.exitOnClose();
             you.exitOnClose();
             zuo.text.click(() => {
                 zuo.setAdjustEnabled(!zuo.isAdjustEnabled());
-                tsjs.put("zuox", zuo.getX())
-                tsjs.put("zuoy", zuo.getY())
             });
             you.text.click(() => {
-                you.setAdjustEnabled(!you.isAdjustEnabled());
-                tsjs.put("youx", you.getX())
-                tsjs.put("youy", you.getY())
+                you.setAdjustEnabled(!you.isAdjustEnabled())
             });
         
         setInterval(() => {
@@ -115,7 +111,11 @@ main = () => {
                 } catch (e) {
                 }
             });
-        }, 50);
+        }, 50);//源码水印(欢迎进群交流探讨)
+//官方群:1038174927
+//官方tg:https://t.me/YJBR982
+//b站UID一:335069986(十里序ovo)
+//b站UID二:34334588(一颗红心永向党zre)
     }
     //显示浮窗
     window.fc()
@@ -168,12 +168,26 @@ main = () => {
     }
     window.黑白化 = a => {
         r = colors.red(a)
-        g = colors.green(a)
+        g = colors.green(a)//源码水印(欢迎进群交流探讨)
+//官方群:1038174927
+//官方tg:https://t.me/YJBR982
+//b站UID一:335069986(十里序ovo)
+//b站UID二:34334588(一颗红心永向党zre)
         b = colors.blue(a)
-        return Math.max(r, g, b)
-    }
-    
-//源码水印(欢迎进群交流探讨)
+        if(r>g){
+            if(r>b){
+                return [r,"r"]
+            }else{
+                return [b,"b"]
+            }
+        }else{
+            if(g>b){
+                return [g,"g"]
+            }else{
+                return [b,"b"]
+            }
+        }
+    }//源码水印(欢迎进群交流探讨)
 //官方群:1038174927
 //官方tg:https://t.me/YJBR982
 //b站UID一:335069986(十里序ovo)
@@ -182,7 +196,17 @@ main = () => {
     window.color = (x, y, data) => {
         c = images.pixel(data, x, y)
         a = window.黑白化(c)
-        return a > 200
+        switch(a[1]){
+            case "r":
+                return a[0]>205
+                break
+            case "g":
+                return a[0]>200
+                break
+            case "b":
+                return a[0]>200
+                break
+        }
     }
     window.colors = (x, y, data, n) => {
         for (let i = 0; i < 6; i++) {
@@ -190,12 +214,16 @@ main = () => {
             if (!x1) {
                 return i
             }
-        }
+        }//源码水印(欢迎进群交流探讨)
+//官方群:1038174927
+//官方tg:https://t.me/YJBR982
+//b站UID一:335069986(十里序ovo)
+//b站UID二:34334588(一颗红心永向党zre)
         return 6
     }
     window.豆 = (x, y) => {
         data = captureScreen()
-        if (!window.黑白化(images.pixel(data, x[0][1], y))) {
+        if (!(window.黑白化(images.pixel(data, x[0][1], y))[0])) {
             return [-2, -2]
         }
         n0 = window.colors(x[0], y, data)
@@ -205,7 +233,7 @@ main = () => {
     window.pd = (a, b) => {
         t = Date.now()
         //灵敏度
-        if (b[1].length < 30) {
+        if (b[1].length < 10) {
             b[1].push([a, t + 15000])
             return b
         } else {
@@ -222,7 +250,11 @@ main = () => {
         if (b[0][0] > 3) {
             b[3] = t + 800
         }
-        if (b[0][0] == b[1][0][0] + 1 && b[2] <= t + 1000 && (b[3] <= t || b[0][0] > 0)) {
+        if (b[0][0] == b[1][0][0] + 1 && b[2] <= t + 1000 && (b[3] <= t || b[0][0] > 0)) {//源码水印(欢迎进群交流探讨)
+//官方群:1038174927
+//官方tg:https://t.me/YJBR982
+//b站UID一:335069986(十里序ovo)
+//b站UID二:34334588(一颗红心永向党zre)
             b[2] = b[1][0][1]
         }
         b[0] = b[1][0]
@@ -231,11 +263,6 @@ main = () => {
     window.pds = (a, b) => {
         return [window.pd(a[0], a[1]), window.pd(b[0], b[1])]
     }
-//源码水印(欢迎进群交流探讨)
-//官方群:1038174927
-//官方tg:https://t.me/YJBR982
-//b站UID一:335069986(十里序ovo)
-//b站UID二:34334588(一颗红心永向党zre)
     threads.start(() => {
         t = Date.now()
         jg = t + 35
@@ -249,10 +276,11 @@ main = () => {
                     continue
                 }
                 jg = t + 35
-                if (n0[0] != n0[1] || n1[0] != n1[1]) {
-                    log(n0[1][0][0], n1[1][0][0])
-                }
-                [d0, d1] = window.豆(x, y)
+                var [d0, d1] = window.豆(x, y)//源码水印(欢迎进群交流探讨)
+//官方群:1038174927
+//官方tg:https://t.me/YJBR982
+//b站UID一:335069986(十里序ovo)
+//b站UID二:34334588(一颗红心永向党zre)
                 if (d0 == -2 || d1 == -2) {
                     [n0, n1] = window.pds([0, [[0, 0], [[0, 0]], 0, 0]], [0, [[0, 0], [[0, 0]], 0, 0]])
                     continue
@@ -266,16 +294,7 @@ main = () => {
         }
     })
 }
-main()
-
-
-
-
-
-
-
-
-//源码水印(欢迎进群交流探讨)
+main()//源码水印(欢迎进群交流探讨)
 //官方群:1038174927
 //官方tg:https://t.me/YJBR982
 //b站UID一:335069986(十里序ovo)
